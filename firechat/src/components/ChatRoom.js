@@ -79,17 +79,20 @@ const Validation = styled.span`
   position: absolute;
   bottom: -100px;
   left: 5px;
-  animation: slideup 0.4s;
+  animation: slideup 2s infinite;
   background: #fff;
   box-shadow: 2px 2px 5px black;
   border-radius: 8px;
   display: flex;
   @keyframes slideup {
-    from {
+    0% {
       bottom: -150px;
     }
-    to {
-      bottom: -100px;
+    50% {
+      bottom: -130px;
+    }
+    100% {
+      bottom: -150px;
     }
   }
   p {
