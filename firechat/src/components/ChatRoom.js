@@ -70,7 +70,7 @@ const DateTime = styled.span`
 `;
 const Validation = styled.span`
   position: absolute;
-  bottom: 5px;
+  bottom: -100px;
   left: 5px;
   animation: slideup 0.4s;
   background: #fff;
@@ -79,10 +79,10 @@ const Validation = styled.span`
   display: flex;
   @keyframes slideup {
     from {
-      bottom: -100px;
+      bottom: -150px;
     }
     to {
-      bottom: 5px;
+      bottom: -100px;
     }
   }
   p {
@@ -129,13 +129,15 @@ function ChatRoom() {
           </MsgBox>
         ))}
         <Dummy ref={scroll}></Dummy>
-       {validation && <Validation>
-          <img
-            alt=""
-            src="https://img-premium.flaticon.com/png/512/2058/premium/2058197.png?token=exp=1631688731~hmac=54337645871694b52bbb97fc7d22d6f6"
-          />
-          <p>Please type a message first</p>
-        </Validation>}
+        {validation && (
+          <Validation>
+            <img
+              alt=""
+              src="https://cdn-icons-png.flaticon.com/512/752/752755.png"
+            />
+            <p>Please type a message first</p>
+          </Validation>
+        )}
       </ChatRoomScreen>
       <SendMsg setValidation={setValidation} scroll={scroll} />
     </>
