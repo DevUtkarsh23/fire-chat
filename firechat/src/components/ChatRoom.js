@@ -42,7 +42,7 @@ const Msg = styled.div`
 const ChatRoomScreen = styled.div`
   height: 760px;
   max-height: 760px;
-  width: 360px;
+  width: 50%;
   background-image: url("https://images.unsplash.com/photo-1531685250784-7569952593d2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80");
   background-size: cover;
   margin: auto;
@@ -51,6 +51,9 @@ const ChatRoomScreen = styled.div`
   flex-direction: column;
   font-family: Arial, Helvetica, sans-serif;
   position: relative;
+  @media screen and (max-width: 480px) {
+    width: 100%;
+  }
 `;
 const Text = styled.div`
   display: flex;
@@ -73,38 +76,9 @@ const DateTime = styled.span`
           color: black;
         `}
 `;
-const Validation = styled.span`
-  position: fixed;
-  bottom: 170px;
-  width: max-content;
-  animation: slideup 0.2s;
-  background: #fff;
-  box-shadow: 2px 2px 5px black;
-  border-radius: 8px;
-  display: flex;
-  @keyframes slideup {
-    from {
-      margin-bottom: -100px;
-    }
-    to {
-      margin-bottom: -25px;
-    }
-  }
-  p {
-    margin: 8px;
-    color: #911f27;
-    font-size: 12px;
-  }
-  img {
-    width: 20px;
-    height: 20px;
-    margin-top: 6px;
-    margin-left: 4px;
-  }
-`;
+
 function ChatRoom() {
   const [messages, setMessages] = useState([]);
-  const [validation, setValidation] = useState(false);
   const scroll = useRef(null);
   useEffect(() => {
     db.collection("message")
@@ -133,19 +107,9 @@ function ChatRoom() {
             </Text>
           </MsgBox>
         ))}
-
-        {validation && (
-          <Validation>
-            <img
-              alt=""
-              src="https://cdn-icons-png.flaticon.com/512/752/752755.png"
-            />
-            <p>Please type a message first</p>
-          </Validation>
-        )}
         <Dummy ref={scroll}></Dummy>
       </ChatRoomScreen>
-      <SendMsg setValidation={setValidation} scroll={scroll} />
+      <SendMsg scroll={scroll} />
     </>
   );
 }
