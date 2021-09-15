@@ -36,7 +36,7 @@ const Avatar = styled.img`
   margin: 10px;
 `;
 const Msg = styled.div`
-  margin: 10px 10px;
+  margin: 20px 10px;
   overflow-wrap: break-word;
 `;
 const ChatRoomScreen = styled.div`
@@ -62,11 +62,18 @@ const Dummy = styled.h1`
   width: 100%;
 `;
 const DateTime = styled.span`
-  color: white;
   position: absolute;
   right: 10px;
   bottom: 0px;
   font-size: 10px;
+  ${({ sent }) =>
+    sent
+      ? css`
+          color: white;
+        `
+      : css`
+          color: black;
+        `}
 `;
 const Validation = styled.span`
   position: absolute;
@@ -122,7 +129,7 @@ function ChatRoom() {
             <Text>
               <Avatar alt="" src={msg.photoURL} />
               <Msg>{msg.text}</Msg>
-              <DateTime>
+              <DateTime sent={auth.currentUser.uid === msg.uid ? true : false}>
                 {msg.createdAt?.toDate().toLocaleTimeString()}
               </DateTime>
             </Text>
