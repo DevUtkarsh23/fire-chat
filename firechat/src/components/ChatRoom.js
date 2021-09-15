@@ -86,13 +86,13 @@ const Validation = styled.span`
   display: flex;
   @keyframes slideup {
     0% {
-      bottom: -150px;
+      bottom: -140px;
     }
     50% {
-      bottom: -130px;
+      bottom: -120px;
     }
     100% {
-      bottom: -150px;
+      bottom: -140px;
     }
   }
   p {
