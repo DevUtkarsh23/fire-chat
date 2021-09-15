@@ -43,6 +43,7 @@ function SendMsg({ scroll, setValidation }) {
     e.preventDefault();
     if (msg === "") {
       setValidation(true);
+      scroll.current.scrollIntoView({ behavior: "smooth" });
     } else {
       const { uid, photoURL } = auth.currentUser;
       await db.collection("message").add({

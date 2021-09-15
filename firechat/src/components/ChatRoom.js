@@ -58,8 +58,6 @@ const Text = styled.div`
 `;
 const Dummy = styled.h1`
   background: transparent;
-  height: 180px;
-  width: 100%;
 `;
 const DateTime = styled.span`
   position: absolute;
@@ -76,23 +74,21 @@ const DateTime = styled.span`
         `}
 `;
 const Validation = styled.span`
-  position: absolute;
-  bottom: -100px;
-  left: 5px;
-  animation: slideup 2s infinite;
+  position: relative;
+  margin-bottom: -25px;
+  width: max-content;
+  animation: slideup 0.2s;
   background: #fff;
   box-shadow: 2px 2px 5px black;
   border-radius: 8px;
   display: flex;
+  z-index: 9;
   @keyframes slideup {
-    0% {
-      bottom: -140px;
+    from {
+      margin-bottom: -100px;
     }
-    50% {
-      bottom: -120px;
-    }
-    100% {
-      bottom: -140px;
+    to {
+      margin-bottom: -25px;
     }
   }
   p {
@@ -138,7 +134,7 @@ function ChatRoom() {
             </Text>
           </MsgBox>
         ))}
-        <Dummy ref={scroll}></Dummy>
+
         {validation && (
           <Validation>
             <img
@@ -148,6 +144,7 @@ function ChatRoom() {
             <p>Please type a message first</p>
           </Validation>
         )}
+        <Dummy ref={scroll}></Dummy>
       </ChatRoomScreen>
       <SendMsg setValidation={setValidation} scroll={scroll} />
     </>
