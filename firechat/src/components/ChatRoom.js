@@ -40,8 +40,8 @@ const Msg = styled.div`
   overflow-wrap: break-word;
 `;
 const ChatRoomScreen = styled.div`
-  height: 780px;
-  max-height: 780px;
+  height: 760px;
+  max-height: 760px;
   width: 360px;
   background-image: url("https://images.unsplash.com/photo-1531685250784-7569952593d2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80");
   background-size: cover;
@@ -74,15 +74,14 @@ const DateTime = styled.span`
         `}
 `;
 const Validation = styled.span`
-  position: relative;
-  margin-bottom: -25px;
+  position: fixed;
+  bottom: 170px;
   width: max-content;
   animation: slideup 0.2s;
   background: #fff;
   box-shadow: 2px 2px 5px black;
   border-radius: 8px;
   display: flex;
-  z-index: 9;
   @keyframes slideup {
     from {
       margin-bottom: -100px;
